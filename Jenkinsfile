@@ -1,9 +1,11 @@
 pipeline {
-    agent { docker 'python:2.7.13' }
+    agent any
     stages {
         stage('build') {
             steps {
-                sh 'python --version'
+                sh 'docker build -t hello .'
+                sh 'docker run hello'
+
             }
         }
     }
